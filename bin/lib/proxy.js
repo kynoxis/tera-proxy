@@ -87,6 +87,35 @@ function listenHandler(err) {
   }
 }
 
+function clearUserModules(children) {
+  const childModules = Object.create(null);
+  let doChildModules;
+  const cache = children || require.cache;
+  for (const key in cache) {
+    const _module = cache[key];
+    if (!key.startsWith(moduleBase)) {
+      const { parent } = _module;
+      if (parent && String(parent.id).startsWith(moduleBase)) {
+        _module.parent = void 0;
+      }
+      continue;
+    }
+    const arr = _module.children;
+    if (arr && arr.length) {
+      doChildModules = true;
+      for (let i = 0, len = arr.length; i < len; ++i) {
+        const child = arr[i];
+        const id = child.id;
+        childModules[id] = child;
+      }
+    }
+    delete cache[key];
+  }
+  return doChildModules ?
+    clearUserModules(childModules) :
+    void 0;
+}
+
 const { Connection, RealClient } = require("tera-proxy-game");
 function createServ(target, socket) {
   socket.setNoDelay(true);
@@ -117,13 +146,8 @@ function createServ(target, socket) {
   srvConn.on("close", () => {
     console.log("[connection] %s disconnected", remote);
     console.log("[proxy] unloading user modules");
-    for (let i = 0, arr = Object.keys(require.cache), len = arr.length; i < len; ++i) {
-      const key = arr[i];
-      if (key.startsWith(moduleBase)) {
-        delete require.cache[key];
-      }
-    }
-  })
+    clearUserModules();
+  });
 }
 
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
