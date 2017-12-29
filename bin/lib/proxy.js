@@ -1,4 +1,4 @@
-const REGION = require("../config.json").region;
+const { region: REGION, cacheModules } = require("../config.json");
 const REGIONS = require("./regions");
 const currentRegion = REGIONS[REGION];
 
@@ -44,6 +44,7 @@ const moduleBase = path.join(__dirname, "..", "node_modules");
 let modules;
 
 function populateModulesList() {
+  if (modules && !cacheModules) return;
   modules = [];
   for (let i = 0, k = -1, arr = fs.readdirSync(moduleBase), len = arr.length; i < len; ++i) {
     const name = arr[i];
@@ -87,6 +88,35 @@ function listenHandler(err) {
   }
 }
 
+function clearUserModules(children) {
+  const childModules = Object.create(null);
+  let doChildModules;
+  const cache = children || require.cache;
+  for (const key in cache) {
+    const _module = cache[key];
+    if (!key.startsWith(moduleBase)) {
+      const { parent } = _module;
+      if (parent && String(parent.id).startsWith(moduleBase)) {
+        _module.parent = void 0;
+      }
+      continue;
+    }
+    const arr = _module.children;
+    if (arr && arr.length) {
+      doChildModules = true;
+      for (let i = 0, len = arr.length; i < len; ++i) {
+        const child = arr[i];
+        const id = child.id;
+        childModules[id] = child;
+      }
+    }
+    delete cache[key];
+  }
+  return doChildModules ?
+    clearUserModules(childModules) :
+    void 0;
+}
+
 const { Connection, RealClient } = require("tera-proxy-game");
 function createServ(target, socket) {
   socket.setNoDelay(true);
@@ -116,14 +146,11 @@ function createServ(target, socket) {
 
   srvConn.on("close", () => {
     console.log("[connection] %s disconnected", remote);
-    console.log("[proxy] unloading user modules");
-    for (let i = 0, arr = Object.keys(require.cache), len = arr.length; i < len; ++i) {
-      const key = arr[i];
-      if (key.startsWith(moduleBase)) {
-        delete require.cache[key];
-      }
+    if (!cacheModules) {
+      console.log("[proxy] unloading user modules");
+      clearUserModules();
     }
-  })
+  });
 }
 
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
@@ -147,11 +174,16 @@ proxy.fetch((err, gameServers) => {
 
 const isWindows = process.platform === "win32";
 
+function whyExit() {
+  if (why) why();
+  process.exit();
+}
+
 function cleanExit() {
   console.log("terminating...");
 
   try { hosts.remove(listenHostname, hostname); }
-  catch (_) {}
+  catch(_) {}
 
   proxy.close();
   for (let i = servers.values(), step; !(step = i.next()).done; )
@@ -161,10 +193,7 @@ function cleanExit() {
     process.stdin.pause();
   }
 
-  setTimeout(() => {
-    why && why();
-    process.exit();
-  }, 5000).unref();
+  setTimeout(whyExit, 5000).unref();
 }
 
 if (isWindows) {
