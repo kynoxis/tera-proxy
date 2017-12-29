@@ -1,4 +1,4 @@
-const REGION = require("../config.json").region;
+const { region: REGION, cacheModules } = require("../config.json");
 const REGIONS = require("./regions");
 const currentRegion = REGIONS[REGION];
 
@@ -44,6 +44,7 @@ const moduleBase = path.join(__dirname, "..", "node_modules");
 let modules;
 
 function populateModulesList() {
+  if (modules && !cacheModules) return;
   modules = [];
   for (let i = 0, k = -1, arr = fs.readdirSync(moduleBase), len = arr.length; i < len; ++i) {
     const name = arr[i];
@@ -145,8 +146,10 @@ function createServ(target, socket) {
 
   srvConn.on("close", () => {
     console.log("[connection] %s disconnected", remote);
-    console.log("[proxy] unloading user modules");
-    clearUserModules();
+    if (!cacheModules) {
+      console.log("[proxy] unloading user modules");
+      clearUserModules();
+    }
   });
 }
 
@@ -171,11 +174,16 @@ proxy.fetch((err, gameServers) => {
 
 const isWindows = process.platform === "win32";
 
+function whyExit() {
+  if (why) why();
+  process.exit();
+}
+
 function cleanExit() {
   console.log("terminating...");
 
   try { hosts.remove(listenHostname, hostname); }
-  catch (_) {}
+  catch(_) {}
 
   proxy.close();
   for (let i = servers.values(), step; !(step = i.next()).done; )
@@ -185,10 +193,7 @@ function cleanExit() {
     process.stdin.pause();
   }
 
-  setTimeout(() => {
-    why && why();
-    process.exit();
-  }, 5000).unref();
+  setTimeout(whyExit, 5000).unref();
 }
 
 if (isWindows) {
