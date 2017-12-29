@@ -1,3 +1,4 @@
 {
-	"region": "NA"
+	"region": "NA",
+	"cacheModules": true
 }
