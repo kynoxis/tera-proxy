@@ -44,7 +44,7 @@ const moduleBase = path.join(__dirname, "..", "node_modules");
 let modules;
 
 function populateModulesList() {
-  if (modules && !cacheModules) return;
+  if (modules && cacheModules) return;
   modules = [];
   for (let i = 0, k = -1, arr = fs.readdirSync(moduleBase), len = arr.length; i < len; ++i) {
     const name = arr[i];
