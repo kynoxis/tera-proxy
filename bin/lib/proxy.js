@@ -56,10 +56,11 @@ function populateModulesList() {
 const SlsProxy = require("tera-proxy-sls");
 
 const servers = new Map();
+const stateMap = new WeakMap();
 const proxy = new SlsProxy(currentRegion);
 
-function customServerCallback(server) {
-  const { address, port } = server.address();
+function customServerCallback() {
+  const { address, port } = this.address();
   console.log(`[game] listening on ${address}:${port}`);
 }
 
@@ -72,7 +73,7 @@ function listenHandler(err) {
     }
     else if (code === "EACCES") {
       let port = currentRegion.port;
-      console.error("ERROR: Another process is already using port " + port + ".\nPlease close or uninstall the application first:");
+      console.error(`ERROR: Another process is already using port ${port}.\nPlease close or uninstall the application first:`);
       return require("./netstat")(port);
     }
     throw err;
@@ -84,7 +85,7 @@ function listenHandler(err) {
   for (let i = servers.entries(), step; !(step = i.next()).done; ) {
     const [id, server] = step.value;
     const currentCustomServer = customServers[id];
-    server.listen(currentCustomServer.port, currentCustomServer.ip || "127.0.0.1", customServerCallback.bind(null, server));
+    server.listen(currentCustomServer.port, currentCustomServer.ip || "127.0.0.1", customServerCallback);
   }
 }
 
@@ -92,8 +93,9 @@ function clearUserModules(children) {
   const childModules = Object.create(null);
   let doChildModules;
   const cache = children || require.cache;
-  for (const key in cache) {
-    const _module = cache[key];
+  let keys = Object.keys(cache), i = keys.length;
+  while(~--i) {
+    const key = keys[i], _module = cache[key];
     if (!key.startsWith(moduleBase)) {
       const { parent } = _module;
       if (parent && String(parent.id).startsWith(moduleBase)) {
@@ -117,40 +119,42 @@ function clearUserModules(children) {
     void 0;
 }
 
+function onServerConnect() {
+  const state = stateMap.get(this);
+  console.log("[connection] routing %s to %s:%d", (
+    state.remote = state.socket.remoteAddress + ":" + state.socket.remotePort
+  ), this.remoteAddress, this.remotePort);
+}
+
+function onServerClose() {
+  console.log("[connection] %s disconnected", stateMap.get(this).remote);
+  if (!cacheModules) {
+    console.log("[proxy] unloading user modules");
+    clearUserModules();
+  }
+}
+
 const { Connection, RealClient } = require("tera-proxy-game");
-function createServ(target, socket) {
+function createServ(socket) {
   socket.setNoDelay(true);
 
   const connection = new Connection();
   const client = new RealClient(connection, socket);
+  const target = stateMap.get(this);
   const srvConn = connection.connect(client, {
     host: target.ip,
     port: target.port
   });
+  stateMap.set(srvConn, { remote: "???", socket });
 
   populateModulesList();
-
   for (let i = 0, arr = modules, len = arr.length; i < len; ++i)
     connection.dispatch.load(arr[i], module);
 
-  let remote = "???";
-
   socket.on("error", console.warn);
-
-  srvConn.on("connect", () => {
-    remote = socket.remoteAddress + ":" + socket.remotePort;
-    console.log("[connection] routing %s to %s:%d", remote, srvConn.remoteAddress, srvConn.remotePort);
-  })
-
+  srvConn.on("connect", onServerConnect);
   srvConn.on("error", console.warn);
-
-  srvConn.on("close", () => {
-    console.log("[connection] %s disconnected", remote);
-    if (!cacheModules) {
-      console.log("[proxy] unloading user modules");
-      clearUserModules();
-    }
-  });
+  srvConn.on("close", onServerClose);
 }
 
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
@@ -166,7 +170,8 @@ proxy.fetch((err, gameServers) => {
       continue;
     }
 
-    const server = net.createServer(createServ.bind(null, target));
+    const server = net.createServer(createServ);
+    stateMap.set(server, target);
     servers.set(id, server);
   }
   proxy.listen(listenHostname, listenHandler);
