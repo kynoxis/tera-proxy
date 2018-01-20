@@ -1,10 +1,10 @@
 const chunks = [];
 const _exitRegexSpaces = / +/g;
 const _exitRegex = /\[(.+?)\]/;
+let port;
 
 function onNetStatExit() {
   const lines = Buffer.concat(chunks).toString().split("\n");
-  const port = this._context.port;
 
   for (let i = 0, len = lines.length; i < len; ++i)
     lines[i] = lines[i].trim().replace(_exitRegexSpaces, " ").split(" ");
@@ -31,9 +31,9 @@ function handleDataStream(data) {
   chunks[chunks.length] = data;
 }
 
-function callNetStat(port) {
+function callNetStat(_) {
   let netstat = require("child_process").spawn("netstat", ["-abno", "-p", "TCP"]);
-  netstat._context = { port };
+  port = _;
   netstat.stdout.on("data", handleDataStream);
   netstat.on("exit", onNetStatExit);
 }
