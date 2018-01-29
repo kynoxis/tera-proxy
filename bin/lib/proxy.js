@@ -16,7 +16,6 @@ const net = require("net");
 const path = require("path");
 const dns = require("dns");
 const hosts = require("./hosts");
-const fast = require("fast.js");
 const { customServers, listenHostname, hostname } = currentRegion;
 
 try { hosts.remove(listenHostname, hostname); }
@@ -174,7 +173,6 @@ proxy.fetch((err, gameServers) => {
     const id = arr[i];
     const target = gameServers[id];
     if (!target) {
-      console.log(gameServers, id, customServers);
       console.error(`server ${id} not found`);
       continue;
     }
