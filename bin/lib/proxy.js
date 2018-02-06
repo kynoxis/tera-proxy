@@ -19,7 +19,7 @@ const hosts = require("./hosts");
 const { customServers, listenHostname, hostname } = currentRegion;
 
 try { hosts.remove(listenHostname, hostname); }
-catch (e) {
+catch(e) {
   switch (e.code) {
    case "EACCES":
     console.error(`ERROR: Hosts file is set to read-only.
@@ -58,10 +58,14 @@ const SlsProxy = require("tera-proxy-sls");
 const servers = new Map();
 const stateMap = new WeakMap();
 const proxy = new SlsProxy(currentRegion);
+let serverAmount, serversListening = 0;
 
 function customServerCallback() {
   const { address, port } = this.address();
   console.log(`[game] listening on ${address}:${port}`);
+  if (++serversListening === serverAmount) {
+    console.log(`[proxy] tera-proxy is listening to ${REGION} connections, you may launch the game now`);
+  }
 }
 
 function listenHandler(err) {
@@ -81,6 +85,8 @@ function listenHandler(err) {
 
   hosts.set(listenHostname, hostname);
   console.log("[sls] server list overridden");
+
+  serverAmount = servers.size;
 
   for (let i = servers.entries(), step; !(step = i.next()).done; ) {
     const [id, server] = step.value;
@@ -148,8 +154,9 @@ function createServ(socket) {
   stateMap.set(srvConn, { remote: "???", socket });
 
   populateModulesList();
-  for (let i = 0, arr = modules, len = arr.length; i < len; ++i)
+  for (let i = 0, arr = modules, len = arr.length; i < len; ++i) {
     connection.dispatch.load(arr[i], module);
+  }
 
   socket.on("error", console.warn);
   srvConn.on("connect", onServerConnect);
