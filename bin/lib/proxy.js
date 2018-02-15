@@ -1,3 +1,12 @@
+try {
+  if(+process.versions.node.split('.')[0] < 9) throw Error()
+}
+catch(e) {
+  console.error('Your version of Node.JS is too old to run tera-proxy. Version 9.0.0 or newer is required.')
+  process.exit()
+  return
+}
+
 const { region: REGION, cacheModules } = require("../config.json");
 const REGIONS = require("./regions");
 const currentRegion = REGIONS[REGION];
