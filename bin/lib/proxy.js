@@ -1,8 +1,10 @@
-try {
-  if(+process.versions.node.split('.')[0] < 9) throw Error()
+if(process.versions.modules < 59) {
+  console.error('Your version of Node.JS is too old to run tera-proxy. Version 8.10.0 or newer is recommended.')
+  process.exit()
+  return
 }
-catch(e) {
-  console.error('Your version of Node.JS is too old to run tera-proxy. Version 9.0.0 or newer is required.')
+else if(process.versions.modules > 59) {
+  console.error('Your version of Node.JS is too new. Version 8.x is recommended.')
   process.exit()
   return
 }
