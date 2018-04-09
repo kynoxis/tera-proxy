@@ -18,10 +18,6 @@ if(!currentRegion) {
 	return
 }
 
-let why
-try { why = require("why-is-node-running") }
-catch(_) {}
-
 const fs = require("fs"),
 	net = require("net"),
 	path = require("path"),
@@ -197,11 +193,6 @@ proxy.fetch((err, gameServers) => {
 
 const isWindows = process.platform === "win32"
 
-function whyExit() {
-	if(why) why()
-	process.exit()
-}
-
 function cleanExit() {
 	console.log("terminating...")
 
@@ -209,14 +200,11 @@ function cleanExit() {
 	catch(_) {}
 
 	proxy.close()
-	for(let i = servers.values(), step; !(step = i.next()).done; )
-		step.value.close()
+	for(let server of servers.values()) server.close()
 
-	if(isWindows) {
-		process.stdin.pause()
-	}
+	if(isWindows) process.stdin.pause()
 
-	setTimeout(whyExit, 5000).unref()
+	process.exit()
 }
 
 if(isWindows) {
