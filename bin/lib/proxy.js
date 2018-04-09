@@ -22,12 +22,12 @@ let why
 try { why = require("why-is-node-running") }
 catch(_) {}
 
-const fs = require("fs")
-const net = require("net")
-const path = require("path")
-const dns = require("dns")
-const hosts = require("./hosts")
-const { customServers, listenHostname, hostname } = currentRegion
+const fs = require("fs"),
+	net = require("net"),
+	path = require("path"),
+	dns = require("dns"),
+	hosts = require("./hosts"),
+	{ customServers, listenHostname, hostname } = currentRegion
 
 try { hosts.remove(listenHostname, hostname) }
 catch(e) {
@@ -66,9 +66,10 @@ function populateModulesList() {
 
 const SlsProxy = require("tera-proxy-sls")
 
-const servers = new Map()
-const stateMap = new WeakMap()
-const proxy = new SlsProxy(currentRegion)
+const servers = new Map(),
+	stateMap = new WeakMap(),
+	proxy = new SlsProxy(currentRegion)
+
 let serverAmount, serversListening = 0
 
 function customServerCallback() {
@@ -155,19 +156,18 @@ const { Connection, RealClient } = require("tera-proxy-game")
 function createServ(socket) {
 	socket.setNoDelay(true)
 
-	const connection = new Connection()
-	const client = new RealClient(connection, socket)
-	const target = stateMap.get(this)
-	const srvConn = connection.connect(client, {
-		host: target.ip,
-		port: target.port
-	})
+	const connection = new Connection(),
+		client = new RealClient(connection, socket),
+		target = stateMap.get(this),
+		srvConn = connection.connect(client, { host: target.ip, port: target.port })
+
 	stateMap.set(srvConn, { remote: "???", socket })
 
 	populateModulesList()
-	for(let i = 0, arr = modules, len = arr.length; i < len; ++i) {
-		connection.dispatch.load(arr[i], module)
-	}
+
+	connection.dispatch.on('init', () => {
+		for(let name of modules) connection.dispatch.load(name, module)
+	})
 
 	socket.on("error", console.warn)
 	srvConn.on("connect", onServerConnect)
