@@ -9,32 +9,32 @@ else if(process.versions.modules > 59) {
 	return
 }
 
-const { region: REGION, cacheModules } = require("../config.json")
-const REGIONS = require("./regions")
+const { region: REGION, cacheModules } = require('../config.json')
+const REGIONS = require('./regions')
 const currentRegion = REGIONS[REGION]
 
 if(!currentRegion) {
-	console.error("Unsupported region: " + REGION)
+	console.error('Unsupported region: ' + REGION)
 	return
 }
 
-const fs = require("fs"),
-	net = require("net"),
-	path = require("path"),
-	dns = require("dns"),
-	hosts = require("./hosts"),
+const fs = require('fs'),
+	net = require('net'),
+	path = require('path'),
+	dns = require('dns'),
+	hosts = require('./hosts'),
 	{ customServers, listenHostname, hostname } = currentRegion
 
 try { hosts.remove(listenHostname, hostname) }
 catch(e) {
 	switch(e.code) {
-		case "EACCES":
+		case 'EACCES':
 			console.error(`ERROR: Hosts file is set to read-only.
 
 * Make sure no anti-virus software is running.
 * Locate "${e.path}", right click the file, click 'Properties', uncheck 'Read-only' then click 'OK'.`)
 			break
-		case "EPERM":
+		case 'EPERM':
 			console.error(`ERROR: Insufficient permission to modify hosts file.
 
 * Make sure no anti-virus software is running.
@@ -47,7 +47,7 @@ catch(e) {
 	process.exit(1)
 }
 
-const moduleBase = path.join(__dirname, "..", "node_modules")
+const moduleBase = path.join(__dirname, '..', 'node_modules')
 let modules
 
 function populateModulesList() {
@@ -55,12 +55,12 @@ function populateModulesList() {
 	modules = []
 	for(let i = 0, k = -1, arr = fs.readdirSync(moduleBase), len = arr.length; i < len; ++i) {
 		const name = arr[i]
-		if(name[0] === "." || name[0] === "_") continue
+		if(name[0] === '.' || name[0] === '_') continue
 		modules[++k] = name
 	}
 }
 
-const SlsProxy = require("tera-proxy-sls")
+const SlsProxy = require('tera-proxy-sls')
 
 const servers = new Map(),
 	stateMap = new WeakMap(),
@@ -79,27 +79,27 @@ function customServerCallback() {
 function listenHandler(err) {
 	if(err) {
 		const { code } = err
-		if(code === "EADDRINUSE") {
-			console.error("ERROR: Another instance of TeraProxy is already running, please close it then try again.")
+		if(code === 'EADDRINUSE') {
+			console.error('ERROR: Another instance of TeraProxy is already running, please close it then try again.')
 			process.exit()
 		}
-		else if(code === "EACCES") {
+		else if(code === 'EACCES') {
 			let port = currentRegion.port
 			console.error(`ERROR: Another process is already using port ${port}.\nPlease close or uninstall the application first:`)
-			return require("./netstat")(port)
+			return require('./netstat')(port)
 		}
 		throw err
 	}
 
 	hosts.set(listenHostname, hostname)
-	console.log("[sls] server list overridden")
+	console.log('[sls] server list overridden')
 
 	serverAmount = servers.size
 
 	for(let i = servers.entries(), step; !(step = i.next()).done; ) {
 		const [id, server] = step.value
 		const currentCustomServer = customServers[id]
-		server.listen(currentCustomServer.port, currentCustomServer.ip || "127.0.0.1", customServerCallback)
+		server.listen(currentCustomServer.port, currentCustomServer.ip || '127.0.0.1', customServerCallback)
 	}
 }
 
@@ -135,20 +135,20 @@ function clearUserModules(children) {
 
 function onServerConnect() {
 	const state = stateMap.get(this)
-	console.log("[connection] routing %s to %s:%d", (
-		state.remote = state.socket.remoteAddress + ":" + state.socket.remotePort
+	console.log('[connection] routing %s to %s:%d', (
+		state.remote = state.socket.remoteAddress + ':' + state.socket.remotePort
 	), this.remoteAddress, this.remotePort)
 }
 
 function onServerClose() {
-	console.log("[connection] %s disconnected", stateMap.get(this).remote)
+	console.log('[connection] %s disconnected', stateMap.get(this).remote)
 	if(!cacheModules) {
-		console.log("[proxy] unloading user modules")
+		console.log('[proxy] unloading user modules')
 		clearUserModules()
 	}
 }
 
-const { Connection, RealClient } = require("tera-proxy-game")
+const { Connection, RealClient } = require('tera-proxy-game')
 function createServ(socket) {
 	socket.setNoDelay(true)
 
@@ -157,21 +157,21 @@ function createServ(socket) {
 		target = stateMap.get(this),
 		srvConn = connection.connect(client, { host: target.ip, port: target.port })
 
-	stateMap.set(srvConn, { remote: "???", socket })
+	stateMap.set(srvConn, { remote: '???', socket })
 
 	populateModulesList()
 
-	connection.dispatch.on('init', () => {
+	connection.dispatch.once('init', () => {
 		for(let name of modules) connection.dispatch.load(name, module)
 	})
 
-	socket.on("error", console.warn)
-	srvConn.on("connect", onServerConnect)
-	srvConn.on("error", console.warn)
-	srvConn.on("close", onServerClose)
+	socket.on('error', console.warn)
+	srvConn.on('connect', onServerConnect)
+	srvConn.on('error', console.warn)
+	srvConn.on('close', onServerClose)
 }
 
-dns.setServers(["8.8.8.8", "8.8.4.4"])
+dns.setServers(['8.8.8.8', '8.8.4.4'])
 
 proxy.fetch((err, gameServers) => {
 	if(err) throw err
@@ -191,10 +191,10 @@ proxy.fetch((err, gameServers) => {
 	proxy.listen(listenHostname, listenHandler)
 })
 
-const isWindows = process.platform === "win32"
+const isWindows = process.platform === 'win32'
 
 function cleanExit() {
-	console.log("terminating...")
+	console.log('terminating...')
 
 	try { hosts.remove(listenHostname, hostname) }
 	catch(_) {}
@@ -208,12 +208,12 @@ function cleanExit() {
 }
 
 if(isWindows) {
-	require("readline").createInterface({
+	require('readline').createInterface({
 		input: process.stdin,
 		output: process.stdout
-	}).on("SIGINT", () => process.emit("SIGINT"))
+	}).on('SIGINT', () => process.emit('SIGINT'))
 }
 
-process.on("SIGHUP", cleanExit)
-process.on("SIGINT", cleanExit)
-process.on("SIGTERM", cleanExit)
+process.on('SIGHUP', cleanExit)
+process.on('SIGINT', cleanExit)
+process.on('SIGTERM', cleanExit)
