@@ -142,12 +142,6 @@ async function init() {
 				console.log(`[connection] routing ${clientIp} to ${srvConn.remoteAddress}:${srvConn.remotePort}`)
 			})
 
-			srvConn.on('connect', function () {
-				console.log('[connection] routing %s to %s:%d', (
-					remote = state.socket.remoteAddress + ':' + state.socket.remotePort
-				), this.remoteAddress, this.remotePort)
-			})
-
 			srvConn.on('error', err => {
 				if(err.code === 'ECONNRESET')
 					console.log('[connection] lost connection to server')
