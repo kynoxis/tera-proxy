@@ -157,7 +157,7 @@ function createServ(socket) {
 			console.warn(err)
 	})
 
-	srvConn.on('connect', () => {
+	srvConn.on('connect', function () {
 		const state = stateMap.get(this)
 		console.log('[connection] routing %s to %s:%d', (
 			state.remote = state.socket.remoteAddress + ':' + state.socket.remotePort
