@@ -133,21 +133,6 @@ function clearUserModules(children) {
 		void 0
 }
 
-function onServerConnect() {
-	const state = stateMap.get(this)
-	console.log('[connection] routing %s to %s:%d', (
-		state.remote = state.socket.remoteAddress + ':' + state.socket.remotePort
-	), this.remoteAddress, this.remotePort)
-}
-
-function onServerClose() {
-	console.log('[connection] %s disconnected', stateMap.get(this).remote)
-	if(!cacheModules) {
-		console.log('[proxy] unloading user modules')
-		clearUserModules()
-	}
-}
-
 const { Connection, RealClient } = require('tera-proxy-game')
 function createServ(socket) {
 	socket.setNoDelay(true)
@@ -165,10 +150,35 @@ function createServ(socket) {
 		for(let name of modules) connection.dispatch.load(name, module)
 	})
 
-	socket.on('error', console.warn)
-	srvConn.on('connect', onServerConnect)
-	srvConn.on('error', console.warn)
-	srvConn.on('close', onServerClose)
+	socket.on('error', err => {
+		if(err.code === 'ECONNRESET')
+			console.log('[connection] client disconnected unexpectedly')
+		else
+			console.warn(err)
+	})
+
+	srvConn.on('connect', () => {
+		const state = stateMap.get(this)
+		console.log('[connection] routing %s to %s:%d', (
+			state.remote = state.socket.remoteAddress + ':' + state.socket.remotePort
+		), this.remoteAddress, this.remotePort)
+	})
+
+	srvConn.on('error', err => {
+		if(err.code === 'ECONNRESET')
+			console.log('[connection] server disconnected unexpectedly')
+		else
+			console.warn(err)
+	})
+
+	srvConn.on('close', () => {
+		console.log('[connection] %s disconnected', stateMap.get(this).remote)
+
+		if(!cacheModules) {
+			console.log('[proxy] unloading user modules')
+			clearUserModules()
+		}
+	})
 }
 
 dns.setServers(['8.8.8.8', '8.8.4.4'])
