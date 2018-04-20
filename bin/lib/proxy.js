@@ -111,12 +111,17 @@ async function init() {
 	// Create game proxies for specified servers
 	for(let id in customServers) {
 		const target = serverList[id]
+
 		if(!target) {
 			console.error(`server ${id} not found`)
 			continue
 		}
 
 		const server = net.createServer(socket => {
+			const logTag = `[game][${socket.remoteAddress}:${socket.remotePort}] `
+
+			function log(msg) { console.log(logTag + msg) }
+
 			socket.setNoDelay(true)
 
 			const connection = new Connection(),
@@ -125,32 +130,28 @@ async function init() {
 
 			populateModulesList()
 
-			const clientIp = `${socket.remoteAddress}:${socket.remotePort}` // logging
+			log('connecting')
 
 			connection.dispatch.once('init', () => {
 				for(let name of modules) connection.dispatch.load(name, module)
 			})
 
 			socket.on('error', err => {
-				if(err.code === 'ECONNRESET')
-					console.log('[connection] lost connection to client')
-				else
-					console.warn(err)
+				if(err.code === 'ECONNRESET') log('lost connection to client')
+				else console.warn(logTag, err)
 			})
 
 			srvConn.on('connect', () => {
-				console.log(`[connection] routing ${clientIp} to ${srvConn.remoteAddress}:${srvConn.remotePort}`)
+				log(`connected to ${srvConn.remoteAddress}:${srvConn.remotePort}`)
 			})
 
 			srvConn.on('error', err => {
-				if(err.code === 'ECONNRESET')
-					console.log('[connection] lost connection to server')
-				else
-					console.warn(err)
+				if(err.code === 'ECONNRESET') log('lost connection to server')
+				else console.warn(logTag, err)
 			})
 
 			srvConn.on('close', () => {
-				console.log(`[connection] ${clientIp} disconnected`)
+				log('disconnected')
 
 				if(!cacheModules) {
 					console.log('[proxy] unloading user modules')
