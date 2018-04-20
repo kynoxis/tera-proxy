@@ -118,9 +118,9 @@ async function init() {
 		}
 
 		const server = net.createServer(socket => {
-			const logTag = `[game][${socket.remoteAddress}:${socket.remotePort}] `
+			const logTag = `[game][${socket.remoteAddress}:${socket.remotePort}]`
 
-			function log(msg) { console.log(logTag + msg) }
+			function log(msg) { console.log(logTag, msg) }
 
 			socket.setNoDelay(true)
 
