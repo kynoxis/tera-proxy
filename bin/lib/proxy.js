@@ -1,17 +1,7 @@
-if(process.versions.modules < 59) {
-	console.error('Your version of Node.JS is too old to run tera-proxy. Version 8.10.0 or newer is recommended.')
-	process.exit()
-	return
-}
-else if(process.versions.modules > 59) {
-	console.error('Your version of Node.JS is too new. Version 8.x is recommended.')
-	process.exit()
-	return
-}
-
-const { region: REGION, cacheModules } = require('../config.json')
-const REGIONS = require('./regions')
-const currentRegion = REGIONS[REGION]
+const { Connection, RealClient } = require('tera-proxy-game'),
+	{ region: REGION, cacheModules } = require('../config.json'),
+	REGIONS = require('./regions'),
+	currentRegion = REGIONS[REGION]
 
 if(!currentRegion) {
 	console.error('Unsupported region: ' + REGION)
@@ -95,8 +85,6 @@ function clearUserModules(children) {
 		clearUserModules(childModules) :
 		void 0
 }
-
-const { Connection, RealClient } = require('tera-proxy-game')
 
 dns.setServers(['8.8.8.8', '8.8.4.4'])
 
