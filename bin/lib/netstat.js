@@ -1,41 +1,28 @@
-const chunks = [];
-const _exitRegexSpaces = / +/g;
-const _exitRegex = /\[(.+?)\]/;
-let port;
+module.exports = port => {
+	const lines = require('child_process').spawnSync('netstat', '-abno -p TCP'.split(' ')).stdout.toString().split('\n')
 
-function onNetStatExit() {
-  const lines = Buffer.concat(chunks).toString().split("\n");
+	for(let i = 0; i < lines.length; i++) lines[i] = lines[i].trim().replace(/ +/g, ' ').split(' ')
 
-  for (let i = 0, len = lines.length; i < len; ++i)
-    lines[i] = lines[i].trim().replace(_exitRegexSpaces, " ").split(" ");
+	for(let i = 0; i < lines.length; i++) {
+		let line = lines[i]
 
-  for (let i = 0, len = lines.length; i < len; ++i) {
-    let line = lines[i];
-    const isBlankTCP = line[0] === "TCP" && line[1] === "0.0.0.0:" + port && line[2] === "0.0.0.0:0";
-    if (!isBlankTCP) continue;
-    let proc;
-    for (let j = 0; j < 3; ++j) {
-      if (!lines[++i] || lines[i].length !== 1) break;
-      if (proc = _exitRegex.exec(lines[i])) {
-        proc = proc[1];
-        break;
-      }
-    }
-    console.log((proc || "unknown") + ":" + line[4]);
-  }
+		if(line[0] == 'TCP' && line[1] == '0.0.0.0:' + port && line[2] == '0.0.0.0:0') {
+			const pid = line[4]
 
-  process.exit();
+			if(pid === '4') return 'Kernel (probably malware)'
+
+			let proc
+
+			for(let i2 = 1; i2 < 4; i2++) {
+				if(!lines[++i] || lines[i].length !== 1) break
+
+				if(proc = /\[(.+?)\]/.exec(lines[i])) {
+					proc = proc[1]
+					break
+				}
+			}
+
+			return (proc || 'unknown') + ':' + pid
+		}
+	}
 }
-
-function handleDataStream(data) {
-  chunks[chunks.length] = data;
-}
-
-function callNetStat(_) {
-  let netstat = require("child_process").spawn("netstat", ["-abno", "-p", "TCP"]);
-  port = _;
-  netstat.stdout.on("data", handleDataStream);
-  netstat.on("exit", onNetStatExit);
-}
-
-module.exports = callNetStat;
