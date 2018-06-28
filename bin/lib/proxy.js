@@ -86,10 +86,12 @@ function clearUserModules(children) {
 		void 0
 }
 
-dns.setServers(['8.8.8.8', '8.8.4.4'])
-
 async function init() {
 	console.log(`[proxy] initializing, game region: ${REGION}`)
+
+	if(['NA', 'TW', 'JP', 'TH', 'KR', 'KR-TEST'].includes(REGION)) require('./xigncode-bypass')
+
+	dns.setServers(['8.8.8.8', '8.8.4.4'])
 
 	// Retrieve server list
 	const serverList = await new Promise((resolve, reject) => {
