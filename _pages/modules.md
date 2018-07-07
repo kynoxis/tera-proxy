@@ -9,7 +9,7 @@ categories:
   modules:
   - repo: pinkipi/skill-prediction
     desc: The big one. Supports most skills.
-  - repo: saltymonkey/skill-prediction
+  - repo: SaltyMonkey/skill-prediction
     desc: Separately-maintained fork of original skill-prediction. May work better for certain classes.
 - header: Notable Modules
   description: "The big guns. These modules are more than simple scripts."
