@@ -16,8 +16,6 @@ categories:
   modules:
   - repo: wuaw/battle-notify
     desc: Shows text notifications on configurable in-game events.
-  - repo: codeagon/fps-utils
-    desc: Lets you hide players, effects, etc. in order to improve FPS.
 - header: Quality of Life
   description: "These modules are relatively benign, and there's likely little risk to using these. But they *will* make your life better, probably."
   modules:
@@ -30,6 +28,8 @@ categories:
     desc: Removes limit on the camera's max range.
   - repo: teralove/channel-command
     desc: Switch channels via chat command.
+  - repo: teralove/disable-ghillieglade-scroll
+    desc: Makes clicking on the scroll do nothing. Use a chat command instead.
   - repo: TeraProxy/emo
     desc: Reuses your last used emote when it gets interrupted.
   - repo: TeraProxy/EnrageNotifier
@@ -62,7 +62,8 @@ categories:
     desc: Disable idle animations.
   - repo: pinkipi/skill-resets
     desc: Pops up a message whenever a skill resets.
-  - repo: pinkipi/skip-cutscenes
+  - repo: baldera-mods/skip-cutscenes
+    author: meishuu
     desc: No more mashing Esc after killing a boss. Pretend cutscenes don't even exist.
   - repo: wuaw/timestamps
     desc: Shows timestamps in chat.
@@ -70,25 +71,35 @@ categories:
     desc: Accepts Allegiance event rewards automatically.
   - repo: soler91/NameChanger
     desc: Changes your name and title clientside.
-- header: Grey Area
-  description: "The ones you want to avoid mentioning in public. These give additional QoL advantages which aren't obtainable with simple macros or low ping."
+- header: The Questionable Ones
+  description: "Where the line starts getting blurred. If you use these and it gets noticed... Well, no promises."
   modules:
   - repo: pinkipi/auto-negotiate
     desc: Automatically accepts or declines broker negotiations. Configurable.
-  - repo: pinkipi/true-everful-nostrum
-    desc: Automatically uses Everful Nostrum (Elite/TERA Club/Premium/etc.) so that it never expires.
+  - repo: TeraProxy/AutoNostrum
+    desc: Automatically uses Everful Nostrum from Elite bar after a rez.
   - repo: wuaw/broker-anywhere
     desc: Open the broker. Anywhere.
+  - repo: TeraProxy/Cosplayer
+    desc: Wear anything anywhere (clientside).
+  - repo: TeraProxy/Essentials
+    desc: Automatically uses Elite Everful Nostrum and Complete Crystalbind.
+  - repo: wuaw/hide-players
+    desc: Hide players via chat command.
   - repo: TeraProxy/ManaPotter
     desc: Automatically uses a Prime Replenishment Potable when under 50% MP.
   - repo: TeraProxy/Teabagger
     desc: but rly tho?
+  - repo: Bernkastel-0/costume-ex
+    desc: Allows wearing anything client-sided through UI selection.
+  - repo: Bernkastel-0/zfps-standard
+    desc: Allows toggling off other players and abilities to improve FPS.
   - repo: Saegusae/loot
-    desc: Automatically loots items around you at superhuman speed. Goodbye, loot pets.
-  - repo: pinkipi/loot
-    desc: Fork of the original loot mod. Includes throttling to prevent disconnects.
+    desc: Automatically loots items in a radius upon pressing F on an item.
+  - repo: Saegusae/fps-utils
+    desc: A compilation of utilities to improve fps, includes disabling fireworks effects.
   - repo: Saegusae/fly-more
-    desc: Ignores flying mount stamina for infinite flying. NOTE: Semi-patched and may cause mid-air dismounts.
+    desc: Ignores flying mount stamina for infinite flying.
   - repo: soler91/CustomMounts
     desc: Use any mount (Clientside).
   - repo: Xtortion/Autostance
