@@ -21,8 +21,7 @@ categories:
   modules:
   - repo: TeraProxy/AFKer
     desc: Prevents the client from going back to character selection.
-  - repo: baldera-mods/autovanguard
-    author: meishuu
+  - repo: pinkipi/autovanguard
     desc: Automatically turns in Vanguard quests upon completion.
   - repo: teralove/camera-distance
     desc: Removes limit on the camera's max range.
@@ -62,8 +61,7 @@ categories:
     desc: Disable idle animations.
   - repo: pinkipi/skill-resets
     desc: Pops up a message whenever a skill resets.
-  - repo: baldera-mods/skip-cutscenes
-    author: meishuu
+  - repo: pinkipi/skip-cutscenes
     desc: No more mashing Esc after killing a boss. Pretend cutscenes don't even exist.
   - repo: wuaw/timestamps
     desc: Shows timestamps in chat.
