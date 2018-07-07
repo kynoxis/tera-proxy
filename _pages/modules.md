@@ -9,12 +9,8 @@ categories:
   modules:
   - repo: pinkipi/skill-prediction
     desc: The big one. Supports most skills.
-  - repo: baldera-mods/fast-fire
-    author: meishuu
-    desc: Just Rapid Fire, Burning Heart, and Burst Fire.
-  - repo: baldera-mods/lockons
-    author: meishuu
-    desc: Just lockons. Exactly what it says on the tin.
+  - repo: saltymonkey/skill-prediction
+    desc: Separately-maintained fork of original skill-prediction. May work better for certain classes.
 - header: Notable Modules
   description: "The big guns. These modules are more than simple scripts."
   modules:
