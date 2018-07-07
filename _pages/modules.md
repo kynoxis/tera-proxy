@@ -45,8 +45,6 @@ categories:
     desc: Return to lobby (character select) via chat command.
   - repo: teralove/no-directional-skills
     desc: Removes directional input on some skills.
-  - repo: Mister-Kay/no-more-command-typos
-    desc: Prevents submitting accidental typos for other modules' "!" prefixed commands.
   - repo: Mister-Kay/no-more-crazy-capes
     desc: Removes exploding physics glitch from some back items.
   - repo: Mister-Kay/no-more-noctenium-lag
@@ -120,9 +118,10 @@ If you want to be added to this list, or you think a module has been miscategori
 
 For any other kind of module, you may want to take a look at public repositories or websites. Below is a list of module developers on GitHub, along with links to other sources where you may find more information or modules not publicly posted.
 
-* [{% avatar baldera-mods %} baldera-mods][@baldera-mods] &ndash; [{% avatar meishuu %} meishuu][@meishuu]'s mods
-* [{% avatar Bernkastel-0 %} Bernkastel-0][@Bernkastel-0] &ndash; [tumblr](http://teraproxy.tumblr.com/)
 * [{% avatar pinkipi %} pinkipi][@pinkipi] &ndash; [Discord](https://discord.gg/RR9zf85)
+* [{% avatar hackerman-caali %} hackerman-caali][@hackerman-caali] &ndash; [Discord](https://discord.gg/maqBmJV)
+* [{% avatar Bernkastel-0 %} Bernkastel-0][@Bernkastel-0] &ndash; [tumblr](http://teraproxy.tumblr.com/)
+* [{% avatar codeagon %} codeagon][@codeagon]
 * [{% avatar Saegusae %} Saegusae][@Saegusae]
 * [{% avatar soler91 %} soler91][@soler91]
 * [{% avatar teralove %} teralove][@teralove]
@@ -134,7 +133,6 @@ For any other kind of module, you may want to take a look at public repositories
 tera-proxy is just one of many projects aimed at modding and extending TERA functionality. These related projects are not modules; they are standalone programs that do their own thing with or without tera-proxy.
 
 * [Alkahest](https://github.com/alexrp/alkahest) ([@alexrp]): An extensible .NET proxy server with additional tools for accessing game client data.
-* [CasualMeter](https://github.com/lunyx/CasualMeter) ([@lunyx]): A TERA DPS meter.
 * [ShinraMeter](https://github.com/neowutran/ShinraMeter) ([@neowutran], [@Gl0]): A TERA DPS meter.
 * [Tera Custom Cooldowns](https://github.com/Foglio1024/Tera-custom-cooldowns) ([@Foglio1024]): Replaces some TERA UI elements with sleek and responsive designs.
 
@@ -148,6 +146,7 @@ tera-proxy is just one of many projects aimed at modding and extending TERA func
 [@codeagon]: <https://github.com/codeagon> "Huge Dong 69"
 [@Foglio1024]: <https://github.com/Foglio1024> "Foglio"
 [@Gl0]: <https://github.com/Gl0> "Gl0"
+[@hackerman-caali]: <https://github.com/hackerman-caali> "Caali"
 [@lunyx]: <https://github.com/lunyx> "Daniel"
 [@meishuu]: <https://github.com/meishuu> "Meishu"
 [@Mister-Kay]: <https://github.com/mister-kay>
