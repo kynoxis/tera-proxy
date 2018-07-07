@@ -42,7 +42,7 @@ categories:
   - repo: Mister-Kay/no-more-crazy-capes
     desc: Removes exploding physics glitch from some back items.
   - repo: Mister-Kay/no-more-noctenium-lag
-    desc: Removes client-side lag from specific packets while noctenium consumable is active.
+    desc: Removes client-side lag from specific packets while noctenium consumable is active. *Does not prevent network lag.*
   - repo: teralove/parcel-helper
     desc: Instantly accept all parcels and delete all read messages.
   - repo: teralove/party-death-markers
@@ -79,7 +79,7 @@ categories:
   - repo: pinkipi/loot
     desc: Fork of the original loot mod. Includes throttling to prevent disconnects.
   - repo: Saegusae/fly-more
-    desc: Ignores flying mount stamina for infinite flying.
+    desc: Ignores flying mount stamina for infinite flying. *Semi-patched and may cause mid-air dismounts.*
   - repo: soler91/CustomMounts
     desc: Use any mount (Clientside).
   - repo: Xtortion/Autostance
