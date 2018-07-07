@@ -71,8 +71,8 @@ categories:
     desc: Accepts Allegiance event rewards automatically.
   - repo: soler91/NameChanger
     desc: Changes your name and title clientside.
-- header: The Questionable Ones
-  description: "Where the line starts getting blurred. If you use these and it gets noticed... Well, no promises."
+- header: Grey Area
+  description: "The ones you want to avoid mentioning in public. These give additional QoL advantages which aren't obtainable with simple macros or low ping."
   modules:
   - repo: pinkipi/auto-negotiate
     desc: Automatically accepts or declines broker negotiations. Configurable.
