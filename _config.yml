@@ -2,11 +2,11 @@
 locale          : "en-US"
 title           : "TERA Proxy"
 title_separator : "-"
-name            : "Meishu"
+name            : "Pinkie Pie"
 description     : "Simple, easy, modular event handling through a TERA proxy server."
-url             : "https://meishuu.github.io"
+url             : "https://pinkipi.github.io"
 baseurl         : "/tera-proxy"
-repository      : "meishuu/tera-proxy"
+repository      : "pinkipi/tera-proxy"
 teaser          : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 
 # Social Sharing
@@ -14,15 +14,15 @@ og_image        : "/assets/images/site-icon.png"
 
 # Site Author
 author:
-  name          : "Meishu"
-  avatar        : "https://avatars.githubusercontent.com/meishuu"
-  bio           : "Sleepy bun. Mystic main."
-  location      : "Celestial Hills (NA)"
+  name          : "Pinkie Pie"
+  avatar        : "https://avatars.githubusercontent.com/pinkipi"
+  bio           : "Smol horse."
+  location      : "Killian (EU)"
   email         :
   uri           :
-  github        : "meishuu"
-  tumblr        : "komyou"
-  youtube       : "https://www.youtube.com/channel/UCvwqAzRW84t0wy_ubsAKbFA"
+  github        : "pinkipi"
+  tumblr        :
+  youtube       :
 
 # Reading Files
 include:
