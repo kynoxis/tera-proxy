@@ -16,6 +16,8 @@ categories:
   modules:
   - repo: wuaw/battle-notify
     desc: Shows text notifications on configurable in-game events.
+  - repo: codeagon/fps-utils
+    desc: Lets you hide players, effects, etc. in order to improve FPS.
 - header: Quality of Life
   description: "These modules are relatively benign, and there's likely little risk to using these. But they *will* make your life better, probably."
   modules:
@@ -155,6 +157,7 @@ tera-proxy is just one of many projects aimed at modding and extending TERA func
 [@alexrp]: <https://github.com/alexrp> "Alex Rønne Petersen"
 [@baldera-mods]: <https://github.com/baldera-mods> "Meishu's Baldera Mods"
 [@Bernkastel-0]: <https://github.com/Bernkastel-0> "Bernkastel"
+[@codeagon]: <https://github.com/codeagon> "Huge Dong 69"
 [@Foglio1024]: <https://github.com/Foglio1024> "Foglio"
 [@Gl0]: <https://github.com/Gl0> "Gl0"
 [@lunyx]: <https://github.com/lunyx> "Daniel"
@@ -163,6 +166,7 @@ tera-proxy is just one of many projects aimed at modding and extending TERA func
 [@neowutran]: <https://github.com/neowutran> "Yukikoo"
 [@pinkipi]: <https://github.com/pinkipi> "Pinkie Pie"
 [@Saegusae]: <http://github.com/saegusae> "Seagoose"
+[@SaltyMonkey]: <http://github.com/SaltyMonkey> "Monkey"
 [@soler91]: <http://github.com/soler91> "Fruit"
 [@teralove]: <https://github.com/teralove>
 [@TeraProxy]: <https://github.com/TeraProxy>
