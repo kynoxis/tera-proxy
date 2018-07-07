@@ -57,6 +57,8 @@ categories:
     desc: Switch character via chat command.
   - repo: teralove/remove-idles
     desc: Disable idle animations.
+  - repo: SaltyMonkey/Salt-remover
+    desc: Removes some annoying game messages.
   - repo: pinkipi/skill-resets
     desc: Pops up a message whenever a skill resets.
   - repo: pinkipi/skip-cutscenes
