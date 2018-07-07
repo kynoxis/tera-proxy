@@ -29,18 +29,12 @@ categories:
     desc: Removes limit on the camera's max range.
   - repo: teralove/channel-command
     desc: Switch channels via chat command.
-  - repo: TeraProxy/emo
-    desc: Reuses your last used emote when it gets interrupted.
   - repo: TeraProxy/EnrageNotifier
     desc: Shows private party notices for enrage and next enrage percentage.
   - repo: teralove/exit-command
     desc: Exit the game via chat command.
   - repo: teralove/exit-instantly
     desc: Exit the game without having to wait 10 seconds. (Basically clicking the X button.)
-  - repo: teralove/healer-debuffs
-    desc: Sends notifications to yourself or party when Hurricane and Contagion have been applied.
-  - repo: teralove/hurricane-cooldown
-    desc: Sends notifications to yourself on hurricane proc, cooldown time, and when it's ready again.
   - repo: teralove/lobby-command
     desc: Return to lobby (character select) via chat command.
   - repo: teralove/no-directional-skills
@@ -67,8 +61,6 @@ categories:
     desc: Shows timestamps in chat.
   - repo: soler91/AfkRewards
     desc: Accepts Allegiance event rewards automatically.
-  - repo: soler91/NameChanger
-    desc: Changes your name and title clientside.
 - header: Grey Area
   description: "The ones you want to avoid mentioning in public. These give additional QoL advantages which aren't obtainable with simple macros or low ping."
   modules:
