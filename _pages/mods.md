@@ -6,7 +6,7 @@ classes: page--mods
 categories:
 - header: Notable Mods
   description: "The big guns. These mods are more than simple scripts."
-  modules:
+  mods:
   - repo: pinkipi/skill-prediction
     desc: Simulates skills client-side, eliminating ping-based delays and animation lock.
   - repo: SaltyMonkey/skill-prediction
@@ -17,7 +17,7 @@ categories:
     desc: Shows text notifications on configurable in-game events.
 - header: Quality of Life
   description: "These mods are relatively benign, and there's likely little risk to using these. But they *will* make your life better, probably."
-  modules:
+  mods:
   - repo: TeraProxy/AFKer
     desc: Prevents the client from going back to character selection.
   - repo: pinkipi/autovanguard
@@ -60,7 +60,7 @@ categories:
     desc: Shows timestamps in chat.
 - header: Grey Area
   description: "The ones you want to avoid mentioning in public. These give additional QoL advantages which aren't obtainable with simple macros or low ping."
-  modules:
+  mods:
   - repo: soler91/AfkRewards
     desc: Accepts Allegiance event rewards automatically.
   - repo: pinkipi/auto-negotiate
@@ -85,7 +85,7 @@ categories:
     desc: Automatically uses Everful Nostrum (Elite/TERA Club/Premium/etc.) so that it never expires.
 - header: Fun Mods
   description: "These do silly things that aren't really important."
-  modules:
+  mods:
   - repo: TeraProxy/Teabagger
     desc: but rly tho?
   - repo: godartm/Tera-AOT
@@ -94,7 +94,7 @@ categories:
 
 Here is a directory with links to a number of GitHub projects and developers who work with tera-proxy or other TERA modding programs. That means **all projects directly linked here are free and open source**.
 
-If you want to be added to this list, or you think a module has been miscategorized, [submit a PR](https://github.com/pinkipi/tera-proxy/edit/gh-pages/_pages/modules.md).
+If you want to be added to this list, or you think a mod has been miscategorized, [submit a PR](https://github.com/pinkipi/tera-proxy/edit/gh-pages/_pages/mods.md).
 
 {% for category in page.categories %}
 
@@ -102,15 +102,15 @@ If you want to be added to this list, or you think a module has been miscategori
 
 {{ category.description }}
 
-| Module | Description |
-| --- | --- |{% for module in category.modules %}{% assign repo = module.repo | split: "/" %}{% assign user = module.author %}{% unless user %}{% assign user = repo[0] %}{% endunless %}
-| [{% avatar user=user %}][@{{ user }}] [{{ repo[1] }}](https://github.com/{{ module.repo }}) | {{ module.desc }} |{% endfor %}
+| Mod | Description |
+| --- | --- |{% for mod in category.mods %}{% assign repo = mod.repo | split: "/" %}{% assign user = mod.author %}{% unless user %}{% assign user = repo[0] %}{% endunless %}
+| [{% avatar user=user %}][@{{ user }}] [{{ repo[1] }}](https://github.com/{{ mod.repo }}) | {{ mod.desc }} |{% endfor %}
 
 {% endfor %}
 
-## Module Developers
+## Mod Developers
 
-For any other kind of module, you may want to take a look at public repositories or websites. Below is a list of module developers on GitHub, along with links to other sources where you may find more information or modules not publicly posted.
+For any other kind of mod, you may want to take a look at public repositories or websites. Below is a list of mod developers on GitHub, along with links to other sources where you may find more information or mods not publicly posted.
 
 * [{% avatar pinkipi %} pinkipi][@pinkipi] &ndash; [Discord](https://discord.gg/RR9zf85)
 * [{% avatar hackerman-caali %} hackerman-caali][@hackerman-caali] &ndash; [Discord](https://discord.gg/maqBmJV)
@@ -124,7 +124,7 @@ For any other kind of module, you may want to take a look at public repositories
 
 ## Related Projects
 
-tera-proxy is just one of many projects aimed at modding and extending TERA functionality. These related projects are not modules; they are standalone programs that do their own thing with or without tera-proxy.
+tera-proxy is just one of many projects aimed at modding and extending TERA functionality. These related projects are not mods; they are standalone programs that do their own thing with or without tera-proxy.
 
 * [Alkahest](https://github.com/alexrp/alkahest) ([@alexrp]): An extensible .NET proxy server with additional tools for accessing game client data.
 * [ShinraMeter](https://github.com/neowutran/ShinraMeter) ([@neowutran], [@Gl0]): A TERA DPS meter.
