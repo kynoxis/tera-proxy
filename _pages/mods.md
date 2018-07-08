@@ -8,10 +8,13 @@ categories:
   description: "The big guns. These mods are more than simple scripts."
   mods:
   - repo: pinkipi/skill-prediction
+    name: Skill Prediction
     desc: Simulates skills client-side, eliminating ping-based delays and animation lock.
   - repo: SaltyMonkey/skill-prediction
+    name: Skill Prediction
     desc: Separately-maintained fork of original skill-prediction. May work better for certain classes.
   - repo: codeagon/fps-utils
+    name: FPS Utils
     desc: Lets you hide players, effects, etc. in order to improve FPS.
   - repo: hackerman-caali/battle-notify
     desc: Shows text notifications on configurable in-game events.
@@ -103,8 +106,8 @@ If you want to be added to this list, or you think a mod has been miscategorized
 {{ category.description }}
 
 | Mod | Description |
-| --- | --- |{% for mod in category.mods %}{% assign repo = mod.repo | split: "/" %}{% assign user = mod.author %}{% unless user %}{% assign user = repo[0] %}{% endunless %}
-| [{% avatar user=user %}][@{{ user }}] [{{ repo[1] }}](https://github.com/{{ mod.repo }}) | {{ mod.desc }} |{% endfor %}
+| --- | --- |{% for mod in category.mods %}{% assign repo = mod.repo | split: "/" %}{% assign user = mod.author %}{% unless user %}{% assign user = repo[0] %}{% endunless %}{% assign name = mod.name %}{% unless name %}{% assign name = repo[1] %}{% endunless %}
+| [{% avatar user=user %}][@{{ user }}] [{{ name }}](https://github.com/{{ mod.repo }}) | {{ mod.desc }} |{% endfor %}
 
 {% endfor %}
 
