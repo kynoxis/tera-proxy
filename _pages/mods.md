@@ -52,8 +52,6 @@ categories:
     desc: Instantly accept all parcels and delete all read messages.
   - repo: SaltyMonkey/Salt-remover
     desc: Removes some annoying game messages.
-  - repo: pinkipi/skill-resets
-    desc: Pops up a message whenever a skill resets.
   - repo: pinkipi/skip-cutscenes
     desc: No more mashing Esc after killing a boss. Pretend cutscenes don't even exist.
   - repo: ashame/timestamps
