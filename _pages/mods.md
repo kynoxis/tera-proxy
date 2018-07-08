@@ -65,22 +65,22 @@ categories:
     desc: Accepts Allegiance event rewards automatically.
   - repo: pinkipi/auto-negotiate
     desc: Automatically accepts or declines broker negotiations. Configurable.
-  - repo: pinkipi/true-everful-nostrum
-    desc: Automatically uses Everful Nostrum (Elite/TERA Club/Premium/etc.) so that it never expires.
+  - repo: Xtortion/Autostance
+    desc: Automatically uses stance skills if they aren't activated.
   - repo: wuaw/broker-anywhere
     desc: Open the broker. Anywhere.
-  - repo: TeraProxy/ManaPotter
-    desc: Automatically uses a Prime Replenishment Potable when under 50% MP.
+  - repo: soler91/CustomMounts
+    desc: Use any mount (Clientside).
+  - repo: Saegusae/fly-more
+    desc: Ignores flying mount stamina for infinite flying. *Semi-patched and may cause mid-air dismounts.*
   - repo: Saegusae/loot
     desc: Automatically loots items around you at superhuman speed. Goodbye, loot pets.
   - repo: pinkipi/loot
     desc: Fork of the original loot mod. Includes throttling to prevent disconnects.
-  - repo: Saegusae/fly-more
-    desc: Ignores flying mount stamina for infinite flying. *Semi-patched and may cause mid-air dismounts.*
-  - repo: soler91/CustomMounts
-    desc: Use any mount (Clientside).
-  - repo: Xtortion/Autostance
-    desc: Automatically uses stance skills if they aren't activated.
+  - repo: TeraProxy/ManaPotter
+    desc: Automatically uses a Prime Replenishment Potable when under 50% MP.
+  - repo: pinkipi/true-everful-nostrum
+    desc: Automatically uses Everful Nostrum (Elite/TERA Club/Premium/etc.) so that it never expires.
 - header: Fun Mods
   description: "These do silly things that aren't really important."
   modules:
