@@ -8,10 +8,10 @@ categories:
   description: "The big guns. These mods are more than simple scripts."
   mods:
   - repo: pinkipi/skill-prediction
-    name: Skill Prediction
+    name: Skill&nbsp;Prediction
     desc: Simulates skills client-side, eliminating ping-based delays and animation lock.
   - repo: SaltyMonkey/skill-prediction
-    name: Skill Prediction
+    name: Skill&nbsp;Prediction
     desc: Separately-maintained fork of original skill-prediction. May work better for certain classes.
   - repo: codeagon/fps-utils
     name: FPS Utils
