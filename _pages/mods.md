@@ -138,6 +138,7 @@ tera-proxy is just one of many projects aimed at modding and extending TERA func
 [@codeagon]: <https://github.com/codeagon> "Huge Dong 69"
 [@Foglio1024]: <https://github.com/Foglio1024> "Foglio"
 [@Gl0]: <https://github.com/Gl0> "Gl0"
+[@godartm]: <https://github.com/godartm>
 [@hackerman-caali]: <https://github.com/hackerman-caali> "Caali"
 [@lunyx]: <https://github.com/lunyx> "Daniel"
 [@meishuu]: <https://github.com/meishuu> "Meishu"
