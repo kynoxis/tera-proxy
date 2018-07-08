@@ -115,12 +115,13 @@ If you want to be added to this list, or you think a mod has been miscategorized
 
 For any other kind of mod, you may want to take a look at public repositories or websites. Below is a list of mod developers on GitHub, along with links to other sources where you may find more information or mods not publicly posted.
 
-* [{% avatar pinkipi %} pinkipi][@pinkipi] &ndash; [Discord](https://discord.gg/RR9zf85)
-* [{% avatar hackerman-caali %} hackerman-caali][@hackerman-caali] &ndash; [Discord](https://discord.gg/maqBmJV)
-* [{% avatar Bernkastel-0 %} Bernkastel-0][@Bernkastel-0] &ndash; [tumblr](http://teraproxy.tumblr.com/)
-* [{% avatar codeagon %} codeagon][@codeagon]
-* [{% avatar Saegusae %} Saegusae][@Saegusae]
-* [{% avatar soler91 %} soler91][@soler91]
+* [{% avatar pinkipi %} Pinkie Pie][@pinkipi] &ndash; [Discord](https://discord.gg/RR9zf85)
+* [{% avatar hackerman-caali %} Caali][@hackerman-caali] &ndash; [Discord](https://discord.gg/maqBmJV)
+* [{% avatar Bernkastel-0 %} Bernkastel][@Bernkastel-0] &ndash; [tumblr](http://teraproxy.tumblr.com/)
+* [{% avatar codeagon %} Huge Dong 69][@codeagon]
+* [{% avatar Mister-Kay %} Kourinn][@Mister-Kay]
+* [{% avatar Saegusae %} Saegusa][@Saegusae]
+* [{% avatar soler91 %} Fruit][@soler91]
 * [{% avatar teralove %} teralove][@teralove]
 * [{% avatar TeraProxy %} TeraProxy][@TeraProxy]
 * [{% avatar wuaw %} wuaw][@wuaw]
@@ -148,7 +149,7 @@ tera-proxy is just one of many projects aimed at modding and extending TERA func
 [@hackerman-caali]: <https://github.com/hackerman-caali> "Caali"
 [@lunyx]: <https://github.com/lunyx> "Daniel"
 [@meishuu]: <https://github.com/meishuu> "Meishu"
-[@Mister-Kay]: <https://github.com/mister-kay>
+[@Mister-Kay]: <https://github.com/mister-kay> "Kourinn"
 [@neowutran]: <https://github.com/neowutran> "Yukikoo"
 [@Owyn]: <https://github.com/Owyn> "Owyn"
 [@pinkipi]: <https://github.com/pinkipi> "Pinkie Pie"
