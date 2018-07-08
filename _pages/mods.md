@@ -107,7 +107,7 @@ If you want to be added to this list, or you think a mod has been miscategorized
 
 | Mod | Description |
 | --- | --- |{% for mod in category.mods %}{% assign repo = mod.repo | split: "/" %}{% assign user = mod.author %}{% unless user %}{% assign user = repo[0] %}{% endunless %}{% assign name = mod.name %}{% unless name %}{% assign name = repo[1] %}{% endunless %}
-| [{% avatar user=user %}][@{{ user }}] [{{ name }}](https://github.com/{{ mod.repo }}) | {{ mod.desc }} |{% endfor %}
+| [{% avatar user=user %}][@{{ user }}]&nbsp;[{{ name }}](https://github.com/{{ mod.repo }}) | {{ mod.desc }} |{% endfor %}
 
 {% endfor %}
 
