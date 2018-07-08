@@ -6,10 +6,10 @@ main:
     url: /developer-guide
   - title: "Changelog"
     url: /changes
-  - title: "Module Directory"
-    url: /modules
+  - title: "Mods"
+    url: /mods
   - title: '<i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub'
-    url: https://github.com/meishuu/tera-proxy
+    url: https://github.com/pinkipi/tera-proxy
 
 # changes links
 changes:
