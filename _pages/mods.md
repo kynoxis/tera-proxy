@@ -1,7 +1,7 @@
 ---
 permalink: /mods
 title: Mods Directory
-classes: page--modules
+classes: page--mods
 
 categories:
 - header: Notable Mods
