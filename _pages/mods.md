@@ -135,6 +135,7 @@ tera-proxy is just one of many projects aimed at modding and extending TERA func
 [//]: # (GitHub @mention link references go below.)
 
 [@alexrp]: <https://github.com/alexrp> "Alex Rønne Petersen"
+[@ashame]: <https://github.com/ashame>
 [@baldera-mods]: <https://github.com/baldera-mods> "Meishu's Baldera Mods"
 [@Bernkastel-0]: <https://github.com/Bernkastel-0> "Bernkastel"
 [@codeagon]: <https://github.com/codeagon> "Huge Dong 69"
