@@ -22,7 +22,7 @@ categories:
     desc: Prevents the client from going back to character selection.
   - repo: pinkipi/autovanguard
     desc: Automatically turns in Vanguard quests upon completion.
-  - repo: teralove/camera-distance
+  - repo: teralove/auto-camera
     desc: Removes limit on the camera's max range.
   - repo: teralove/channel-command
     desc: Switch channels via chat command.
@@ -50,17 +50,13 @@ categories:
     desc: Instantly accept all parcels and delete all read messages.
   - repo: teralove/party-death-markers
     desc: Shows rare item beacon on party member corpses.
-  - repo: wuaw/relog
-    desc: Switch character via chat command.
-  - repo: teralove/remove-idles
-    desc: Disable idle animations.
   - repo: SaltyMonkey/Salt-remover
     desc: Removes some annoying game messages.
   - repo: pinkipi/skill-resets
     desc: Pops up a message whenever a skill resets.
   - repo: pinkipi/skip-cutscenes
     desc: No more mashing Esc after killing a boss. Pretend cutscenes don't even exist.
-  - repo: wuaw/timestamps
+  - repo: ashame/timestamps
     desc: Shows timestamps in chat.
 - header: Grey Area
   description: "The ones you want to avoid mentioning in public. These give additional QoL advantages which aren't obtainable with simple macros or low ping."
@@ -85,8 +81,6 @@ categories:
     desc: Automatically loots items around you at superhuman speed. Goodbye, loot pets.
   - repo: pinkipi/loot
     desc: Fork of the original loot mod. Includes throttling to prevent disconnects.
-  - repo: TeraProxy/ManaPotter
-    desc: Automatically uses a Prime Replenishment Potable when under 50% MP.
   - repo: pinkipi/true-everful-nostrum
     desc: Automatically uses Everful Nostrum (Elite/TERA Club/Premium/etc.) so that it never expires.
 - header: Fun Mods
