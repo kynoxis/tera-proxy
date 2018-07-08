@@ -4,20 +4,17 @@ title: Module Directory
 classes: page--modules
 
 categories:
-- header: Skill Predictors
-  description: "Simulates skills client-side so you can evade taxes of the ping variety."
-  modules:
-  - repo: pinkipi/skill-prediction
-    desc: The big one. Supports most skills.
-  - repo: SaltyMonkey/skill-prediction
-    desc: Separately-maintained fork of original skill-prediction. May work better for certain classes.
 - header: Notable Modules
   description: "The big guns. These modules are more than simple scripts."
   modules:
-  - repo: wuaw/battle-notify
-    desc: Shows text notifications on configurable in-game events.
+  - repo: pinkipi/skill-prediction
+    desc: Simulates skills client-side, eliminating ping-based delays and animation lock.
+  - repo: SaltyMonkey/skill-prediction
+    desc: Separately-maintained fork of original skill-prediction. May work better for certain classes.
   - repo: codeagon/fps-utils
     desc: Lets you hide players, effects, etc. in order to improve FPS.
+  - repo: hackerman-caali/battle-notify
+    desc: Shows text notifications on configurable in-game events.
 - header: Quality of Life
   description: "These modules are relatively benign, and there's likely little risk to using these. But they *will* make your life better, probably."
   modules:
@@ -37,6 +34,8 @@ categories:
     desc: Exit the game without having to wait 10 seconds. (Basically clicking the X button.)
   - repo: teralove/lobby-command
     desc: Return to lobby (character select) via chat command.
+  - repo: hackerman-caali/no-custom-loadingscreens
+    desc: Disables custom loading screens supplied by the publishers.
   - repo: teralove/no-directional-skills
     desc: Removes directional input on some skills.
   - repo: Mister-Kay/no-more-crazy-capes
@@ -59,11 +58,11 @@ categories:
     desc: No more mashing Esc after killing a boss. Pretend cutscenes don't even exist.
   - repo: wuaw/timestamps
     desc: Shows timestamps in chat.
-  - repo: soler91/AfkRewards
-    desc: Accepts Allegiance event rewards automatically.
 - header: Grey Area
   description: "The ones you want to avoid mentioning in public. These give additional QoL advantages which aren't obtainable with simple macros or low ping."
   modules:
+  - repo: soler91/AfkRewards
+    desc: Accepts Allegiance event rewards automatically.
   - repo: pinkipi/auto-negotiate
     desc: Automatically accepts or declines broker negotiations. Configurable.
   - repo: pinkipi/true-everful-nostrum
