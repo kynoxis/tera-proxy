@@ -34,6 +34,8 @@ categories:
     desc: Exit the game without having to wait 10 seconds. (Basically clicking the X button.)
   - repo: pinkipi/fix-event-stars-cooldown
     desc: Fixes the cooldown of Astral Gifts on EU servers.
+  - repo: Owyn/generic-box-opener-item-user
+    desc: Mass-opens boxes (including gacha) or uses items.
   - repo: pinkipi/item-cache
     desc: Reduces bandwidth usage and speeds up opening inventory and bank tabs.
   - repo: teralove/lobby-command
@@ -48,8 +50,6 @@ categories:
     desc: Removes client-side lag from specific packets while noctenium consumable is active. *Does not prevent network lag.*
   - repo: teralove/parcel-helper
     desc: Instantly accept all parcels and delete all read messages.
-  - repo: teralove/party-death-markers
-    desc: Shows rare item beacon on party member corpses.
   - repo: SaltyMonkey/Salt-remover
     desc: Removes some annoying game messages.
   - repo: pinkipi/skill-resets
@@ -73,14 +73,16 @@ categories:
     desc: Use any mount (Clientside).
   - repo: Saegusae/fly-more
     desc: Ignores flying mount stamina for infinite flying. *Semi-patched and may cause mid-air dismounts.*
-  - repo: pinkipi/instant-soulbind
-    desc: Bypasses the wait timer for soulbinding items.
   - repo: pinkipi/instant-enchant
     desc: Bypasses the wait timer for enchanting/upgrading gear.
+  - repo: pinkipi/instant-soulbind
+    desc: Bypasses the wait timer for soulbinding items.
   - repo: Saegusae/loot
     desc: Automatically loots items around you at superhuman speed. Goodbye, loot pets.
   - repo: pinkipi/loot
     desc: Fork of the original loot mod. Includes throttling to prevent disconnects.
+  - repo: teralove/party-death-markers
+    desc: Shows rare item beacon on party member corpses.
   - repo: pinkipi/true-everful-nostrum
     desc: Automatically uses Everful Nostrum (Elite/TERA Club/Premium/etc.) so that it never expires.
 - header: Fun Mods
@@ -147,6 +149,7 @@ tera-proxy is just one of many projects aimed at modding and extending TERA func
 [@meishuu]: <https://github.com/meishuu> "Meishu"
 [@Mister-Kay]: <https://github.com/mister-kay>
 [@neowutran]: <https://github.com/neowutran> "Yukikoo"
+[@Owyn]: <https://github.com/Owyn> "Owyn"
 [@pinkipi]: <https://github.com/pinkipi> "Pinkie Pie"
 [@Saegusae]: <http://github.com/saegusae> "Seagoose"
 [@SaltyMonkey]: <http://github.com/SaltyMonkey> "Monkey"
