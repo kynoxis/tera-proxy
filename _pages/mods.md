@@ -32,6 +32,10 @@ categories:
     desc: Exit the game via chat command.
   - repo: teralove/exit-instantly
     desc: Exit the game without having to wait 10 seconds. (Basically clicking the X button.)
+  - repo: pinkipi/fix-event-stars-cooldown
+    desc: Fixes the cooldown of Astral Gifts on EU servers.
+  - repo: pinkipi/item-cache
+    desc: Reduces bandwidth usage and speeds up opening inventory and bank tabs.
   - repo: teralove/lobby-command
     desc: Return to lobby (character select) via chat command.
   - repo: hackerman-caali/no-custom-loadingscreens
@@ -73,6 +77,10 @@ categories:
     desc: Use any mount (Clientside).
   - repo: Saegusae/fly-more
     desc: Ignores flying mount stamina for infinite flying. *Semi-patched and may cause mid-air dismounts.*
+  - repo: pinkipi/instant-soulbind
+    desc: Bypasses the wait timer for soulbinding items.
+  - repo: pinkipi/instant-enchant
+    desc: Bypasses the wait timer for enchanting/upgrading gear.
   - repo: Saegusae/loot
     desc: Automatically loots items around you at superhuman speed. Goodbye, loot pets.
   - repo: pinkipi/loot
