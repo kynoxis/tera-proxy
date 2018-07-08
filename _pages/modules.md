@@ -1,11 +1,11 @@
 ---
-permalink: /modules
-title: Module Directory
+permalink: /mods
+title: Mods Directory
 classes: page--modules
 
 categories:
-- header: Notable Modules
-  description: "The big guns. These modules are more than simple scripts."
+- header: Notable Mods
+  description: "The big guns. These mods are more than simple scripts."
   modules:
   - repo: pinkipi/skill-prediction
     desc: Simulates skills client-side, eliminating ping-based delays and animation lock.
@@ -16,7 +16,7 @@ categories:
   - repo: hackerman-caali/battle-notify
     desc: Shows text notifications on configurable in-game events.
 - header: Quality of Life
-  description: "These modules are relatively benign, and there's likely little risk to using these. But they *will* make your life better, probably."
+  description: "These mods are relatively benign, and there's likely little risk to using these. But they *will* make your life better, probably."
   modules:
   - repo: TeraProxy/AFKer
     desc: Prevents the client from going back to character selection.
@@ -71,8 +71,6 @@ categories:
     desc: Open the broker. Anywhere.
   - repo: TeraProxy/ManaPotter
     desc: Automatically uses a Prime Replenishment Potable when under 50% MP.
-  - repo: TeraProxy/Teabagger
-    desc: but rly tho?
   - repo: Saegusae/loot
     desc: Automatically loots items around you at superhuman speed. Goodbye, loot pets.
   - repo: pinkipi/loot
@@ -83,6 +81,13 @@ categories:
     desc: Use any mount (Clientside).
   - repo: Xtortion/Autostance
     desc: Automatically uses stance skills if they aren't activated.
+- header: Fun Mods
+  description: "These do silly things that aren't really important."
+  modules:
+  - repo: TeraProxy/Teabagger
+    desc: but rly tho?
+  - repo: godartm/Tera-AOT
+    desc: Makes everyone wear the Attack on Titan costume.
 ---
 
 Here is a directory with links to a number of GitHub projects and developers who work with tera-proxy or other TERA modding programs. That means **all projects directly linked here are free and open source**.
