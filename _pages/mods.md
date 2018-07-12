@@ -37,6 +37,7 @@ categories:
   - repo: teralove/exit-instantly
     desc: Exit the game without having to wait 10 seconds. (Basically clicking the X button.)
   - repo: pinkipi/fix-event-stars-cooldown
+    author: ayylamar
     desc: Fixes the cooldown of Astral Gifts on EU servers.
   - repo: Owyn/generic-box-opener-item-user
     desc: Mass-opens boxes (including gacha) or uses items.
@@ -146,6 +147,7 @@ tera-proxy is just one of many projects aimed at modding and extending TERA func
 
 [@alexrp]: <https://github.com/alexrp> "Alex Rønne Petersen"
 [@ashame]: <https://github.com/ashame>
+[@ayylamar]: <https://github.com/ayylamar> "JustPassingBy"
 [@baldera-mods]: <https://github.com/baldera-mods> "Meishu's Baldera Mods"
 [@Bernkastel-0]: <https://github.com/Bernkastel-0> "Bernkastel"
 [@codeagon]: <https://github.com/codeagon> "Huge Dong 69"
