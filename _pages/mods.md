@@ -73,6 +73,9 @@ categories:
     desc: Open the broker. Anywhere.
   - repo: soler91/CustomMounts
     desc: Use any mount (Clientside).
+  - repo: pinkipi/drop
+    author: Saegusae
+    desc: Instantly triggers fall damage (if the map supports it) to lower yourself to Slaying HP.
   - repo: Saegusae/fly-more
     desc: Ignores flying mount stamina for infinite flying. *Semi-patched and may cause mid-air dismounts.*
   - repo: pinkipi/instant-enchant
@@ -85,6 +88,8 @@ categories:
     desc: Fork of the original loot mod. Includes throttling to prevent disconnects.
   - repo: teralove/party-death-markers
     desc: Shows rare item beacon on party member corpses.
+  - repo: pinkipi/rootbeer
+    desc: Automatically opens Bamarama Boxes and deletes unwanted items.
   - repo: pinkipi/true-everful-nostrum
     desc: Automatically uses Everful Nostrum (Elite/TERA Club/Premium/etc.) so that it never expires.
 - header: Fun Mods
