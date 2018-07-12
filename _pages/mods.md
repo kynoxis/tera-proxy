@@ -29,7 +29,8 @@ categories:
     desc: Removes limit on the camera's max range.
   - repo: teralove/channel-command
     desc: Switch channels via chat command.
-  - repo: TeraProxy/EnrageNotifier
+  - repo: pinkipo/EnrageNotifier
+    author: TeraProxy
     desc: Shows private party notices for enrage and next enrage percentage.
   - repo: teralove/exit-command
     desc: Exit the game via chat command.
