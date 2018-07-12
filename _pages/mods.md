@@ -17,6 +17,7 @@ categories:
     name: FPS Utils
     desc: Lets you hide players, effects, etc. in order to improve FPS.
   - repo: hackerman-caali/battle-notify
+    name: BattleNotify
     desc: Shows text notifications on configurable in-game events.
 - header: Quality of Life
   description: "These mods are relatively benign, and there's likely little risk to using these. But they *will* make your life better, probably."
@@ -50,6 +51,7 @@ categories:
     name: Generic Box Opener / Item User
     desc: Mass-opens boxes (including gacha) or uses items.
   - repo: pinkipi/item-cache
+    name: ItemCache
     desc: Reduces bandwidth usage and speeds up opening inventory and bank tabs.
   - repo: teralove/lobby-command
     name: Lobby Command
@@ -76,6 +78,7 @@ categories:
     name: Skip Cutscenes
     desc: No more mashing Esc after killing a boss. Pretend cutscenes don't even exist.
   - repo: ashame/timestamps
+    name: Timestamps
     desc: Shows timestamps in chat.
 - header: Grey Area
   description: "The ones you want to avoid mentioning in public. These give additional QoL advantages which aren't obtainable with simple macros or low ping."
