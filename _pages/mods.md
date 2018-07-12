@@ -24,40 +24,56 @@ categories:
   - repo: TeraProxy/AFKer
     desc: Prevents the client from going back to character selection.
   - repo: pinkipi/autovanguard
+    name: AutoVanguard
     desc: Automatically turns in Vanguard quests upon completion.
   - repo: teralove/auto-camera
+    name: AutoCamera
     desc: Removes limit on the camera's max range.
   - repo: teralove/channel-command
+    name: Channel Command
     desc: Switch channels via chat command.
   - repo: pinkipi/EnrageNotifier
     author: TeraProxy
+    name: Enrage Notifier
     desc: Shows private party notices for enrage and next enrage percentage.
   - repo: teralove/exit-command
+    name: Exit Command
     desc: Exit the game via chat command.
   - repo: teralove/exit-instantly
+    name: Exit Instantly
     desc: Exit the game without having to wait 10 seconds. (Basically clicking the X button.)
   - repo: pinkipi/fix-event-stars-cooldown
     author: ayylmar
+    name: Fix Event Stars Cooldown
     desc: Fixes the cooldown of Astral Gifts on EU servers.
   - repo: Owyn/generic-box-opener-item-user
+    name: Generic Box Opener / Item User
     desc: Mass-opens boxes (including gacha) or uses items.
   - repo: pinkipi/item-cache
     desc: Reduces bandwidth usage and speeds up opening inventory and bank tabs.
   - repo: teralove/lobby-command
+    name: Lobby Command
     desc: Return to lobby (character select) via chat command.
   - repo: hackerman-caali/no-custom-loadingscreens
+    name: No Custom Loading Screens
     desc: Disables custom loading screens supplied by the publishers.
   - repo: teralove/no-directional-skills
+    name: No Directional Skills
     desc: Removes directional input on some skills.
   - repo: Mister-Kay/no-more-crazy-capes
+    name: No More Crazy Capes
     desc: Removes exploding physics glitch from some back items.
   - repo: Mister-Kay/no-more-noctenium-lag
+    name: No More Noctenium Lag
     desc: Removes client-side lag from specific packets while noctenium consumable is active. *Does not prevent network lag.*
   - repo: teralove/parcel-helper
+    name: Parcel Helper
     desc: Instantly accept all parcels and delete all read messages.
   - repo: SaltyMonkey/Salt-remover
+    name: Salt Remover
     desc: Removes some annoying game messages.
   - repo: pinkipi/skip-cutscenes
+    name: Skip Cutscenes
     desc: No more mashing Esc after killing a boss. Pretend cutscenes don't even exist.
   - repo: ashame/timestamps
     desc: Shows timestamps in chat.
@@ -65,33 +81,47 @@ categories:
   description: "The ones you want to avoid mentioning in public. These give additional QoL advantages which aren't obtainable with simple macros or low ping."
   mods:
   - repo: soler91/AfkRewards
+    name: AFK Rewards
     desc: Accepts Allegiance event rewards automatically.
   - repo: pinkipi/auto-negotiate
+    name: AutoNegotiate
     desc: Automatically accepts or declines broker negotiations. Configurable.
   - repo: Xtortion/Autostance
+    name: AutoStance
     desc: Automatically uses stance skills if they aren't activated.
   - repo: wuaw/broker-anywhere
+    name: Broker Anywhere
     desc: Open the broker. Anywhere.
   - repo: soler91/CustomMounts
+    name: Custom Mounts
     desc: Use any mount (Clientside).
   - repo: pinkipi/drop
     author: Saegusae
+    name: Drop
     desc: Instantly triggers fall damage (if the map supports it) to lower yourself to Slaying HP.
   - repo: Saegusae/fly-more
+    name: Fly More
     desc: Ignores flying mount stamina for infinite flying. *Semi-patched and may cause mid-air dismounts.*
   - repo: pinkipi/instant-enchant
+    name: Instant Enchant
     desc: Bypasses the wait timer for enchanting/upgrading gear.
   - repo: pinkipi/instant-soulbind
+    name: Instant Soulbind
     desc: Bypasses the wait timer for soulbinding items.
   - repo: Saegusae/loot
+    name: Loot
     desc: Automatically loots items around you at superhuman speed. Goodbye, loot pets.
   - repo: pinkipi/loot
-    desc: Fork of the original loot mod. Includes throttling to prevent disconnects.
+    name: Loot
+    desc: Fork of the original Loot mod. Includes throttling to prevent disconnects.
   - repo: teralove/party-death-markers
+    name: Party Death Markers
     desc: Shows rare item beacon on party member corpses.
   - repo: pinkipi/rootbeer
+    name: RootBeer
     desc: Automatically opens Bamarama Boxes and deletes unwanted items.
   - repo: pinkipi/true-everful-nostrum
+    name: True Everful Nostrum
     desc: Automatically uses Everful Nostrum (Elite/TERA Club/Premium/etc.) so that it never expires.
 - header: Fun Mods
   description: "These do silly things that aren't really important."
