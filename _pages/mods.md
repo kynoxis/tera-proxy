@@ -102,9 +102,9 @@ categories:
     author: Saegusae
     name: Drop
     desc: Instantly triggers fall damage (if the map supports it) to lower yourself to Slaying HP.
-  - repo: Saegusae/fly-more
+  - repo: pinkipi/fly-more
     name: Fly More
-    desc: Ignores flying mount stamina for infinite flying. *Semi-patched and may cause mid-air dismounts.*
+    desc: Ignores flying mount stamina for infinite flying.
   - repo: pinkipi/instant-enchant
     name: Instant Enchant
     desc: Bypasses the wait timer for enchanting/upgrading gear.
