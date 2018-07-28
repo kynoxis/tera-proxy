@@ -74,6 +74,9 @@ categories:
   - repo: SaltyMonkey/Salt-remover
     name: Salt Remover
     desc: Removes some annoying game messages.
+  - repo: pinkipi/skill-resets
+    name: Skill Resets
+    desc: Pops up a message whenever a skill resets.
   - repo: pinkipi/skip-cutscenes
     name: Skip Cutscenes
     desc: No more mashing Esc after killing a boss. Pretend cutscenes don't even exist.
