@@ -125,6 +125,8 @@ dns.setServers(['8.8.8.8', '8.8.4.4'])
 async function init() {
 	console.log(`[proxy] initializing, game region: ${REGION}`)
 
+	if(['NA', 'TW', 'JP', 'TH', 'KR', 'KR-TEST'].includes(REGION)) require('./xigncode-bypass')
+
 	// Retrieve server list
 	const serverList = await new Promise((resolve, reject) => {
 		proxy.fetch((e, list) => { e ? reject(e) : resolve(list) })
