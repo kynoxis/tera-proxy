@@ -1,4 +1,5 @@
 const { Connection, RealClient } = require('tera-proxy-game'),
+	{ protocol } = require('tera-data-parser'),
 	{ region: REGION, cacheModules } = require('../config.json'),
 	REGIONS = require('./regions'),
 	currentRegion = REGIONS[REGION]
@@ -43,12 +44,45 @@ let modules
 
 function populateModulesList() {
 	if(modules && cacheModules) return
+
 	modules = []
-	for(let i = 0, k = -1, arr = fs.readdirSync(moduleBase), len = arr.length; i < len; ++i) {
-		const name = arr[i]
-		if(name[0] === '.' || name[0] === '_') continue
-		modules[++k] = name
+
+	for(let name of fs.readdirSync(moduleBase))
+		if(name[0] !== '.' && name[0] !== '_' && checkMod(name, path.join(moduleBase, name))) modules.push(name)
+}
+
+function checkMod(modName, file) {
+	if(!fs.lstatSync(file).isDirectory()) return true // Standalone script
+
+	try {
+		const {packets} = JSON.parse(fs.readFileSync(path.join(file, 'mod.json'), 'utf8'))
+
+		if(packets) {
+			if(!protocol.loaded) protocol.load()
+
+			for(let name in packets) {
+				const msg = protocol.messages.get(name)
+
+				if(!msg) {
+					console.warn(`Failed to load mod "${modName}":\n* Packet "${name}" has no definition. (outdated proxy/mod?)`)
+					return false
+				}
+
+				const versions = packets[name]
+
+				for(let version of (typeof versions === 'number' ? [versions] : versions))
+					if(!msg.get(version)) {
+						console.warn(`Failed to load mod "${modName}":\n* Packet definition ${name}.${version} ${
+							Math.max(...msg.keys()) > version ? 'is obsolete. (outdated mod)' : 'does not exist. (outdated proxy?)'
+						}`)
+						return false
+					}
+			}
+		}
 	}
+	catch(e) {}
+
+	return true
 }
 
 const SlsProxy = require('tera-proxy-sls')
@@ -86,12 +120,10 @@ function clearUserModules(children) {
 		void 0
 }
 
+dns.setServers(['8.8.8.8', '8.8.4.4'])
+
 async function init() {
 	console.log(`[proxy] initializing, game region: ${REGION}`)
-
-	if(['NA', 'TW', 'JP', 'TH', 'KR', 'KR-TEST'].includes(REGION)) require('./xigncode-bypass')
-
-	dns.setServers(['8.8.8.8', '8.8.4.4'])
 
 	// Retrieve server list
 	const serverList = await new Promise((resolve, reject) => {
@@ -100,6 +132,8 @@ async function init() {
 
 	// Create game proxies for specified servers
 	for(let id in customServers) {
+		if(isNaN(id)) continue
+
 		const target = serverList[id]
 
 		if(!target) {
@@ -144,7 +178,7 @@ async function init() {
 				log('disconnected')
 
 				if(!cacheModules) {
-					console.log('[proxy] unloading user modules')
+					console.log('[proxy] unloading user mods')
 					clearUserModules()
 				}
 			})
