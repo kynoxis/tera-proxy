@@ -1,28 +1,13 @@
 {
 	"tag": "[Proxy]",
-	"4004": {
+	"4105": {
 		"ip": "127.0.0.20",
 		"port": 9250,
 		"keepOriginal": true
 	},
-	"4009": {
+	"4107": {
 		"ip": "127.0.0.20",
 		"port": 9251,
-		"keepOriginal": true
-	},
-	"4012": {
-		"ip": "127.0.0.20",
-		"port": 9252,
-		"keepOriginal": true
-	},
-	"4024": {
-		"ip": "127.0.0.20",
-		"port": 9253,
-		"keepOriginal": true
-	},
-	"4032": {
-		"ip": "127.0.0.20",
-		"port": 9254,
 		"keepOriginal": true
 	}
 }
