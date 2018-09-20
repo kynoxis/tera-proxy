@@ -43,10 +43,6 @@ categories:
   - repo: teralove/exit-instantly
     name: Exit Instantly
     desc: Exit the game without having to wait 10 seconds. (Basically clicking the X button.)
-  - repo: pinkipi/fix-event-stars-cooldown
-    author: ayylmar
-    name: Fix Event Stars Cooldown
-    desc: Fixes the cooldown of Astral Gifts on EU servers.
   - repo: Owyn/generic-box-opener-item-user
     name: Generic Box Opener / Item User
     desc: Mass-opens boxes (including gacha) or uses items.
