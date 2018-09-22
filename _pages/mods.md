@@ -19,9 +19,6 @@ categories:
   - repo: hackerman-caali/battle-notify
     name: BattleNotify
     desc: Shows text notifications on configurable in-game events.
-  - repo: Mister-Kay/boss-ping-remover
-    name: Boss Ping Remover
-    desc: Reduces ping-based delays for NPC animations.
   - repo: Mister-Kay/ping-compensation
     name: Ping Compensation
     desc: Alternative to Skill Prediction, reducing ping-based delays without simulation.
@@ -36,6 +33,9 @@ categories:
   - repo: teralove/auto-camera
     name: AutoCamera
     desc: Removes limit on the camera's max range.
+  - repo: Mister-Kay/boss-ping-remover
+    name: Boss Ping Remover
+    desc: Reduces ping-based delays for NPC animations.
   - repo: teralove/channel-command
     name: Channel Command
     desc: Switch channels via chat command.
