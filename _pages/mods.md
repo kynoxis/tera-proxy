@@ -19,6 +19,9 @@ categories:
   - repo: hackerman-caali/battle-notify
     name: BattleNotify
     desc: Shows text notifications on configurable in-game events.
+  - repo: Mister-Kay/ping-compensation
+    name: Ping Compensation
+    desc: Alternative to Skill Prediction, reducing ping-based delays without simulation.
 - header: Quality of Life
   description: "These mods are relatively benign, and there's likely little risk to using these. But they *will* make your life better, probably."
   mods:
@@ -30,6 +33,9 @@ categories:
   - repo: teralove/auto-camera
     name: AutoCamera
     desc: Removes limit on the camera's max range.
+  - repo: Mister-Kay/boss-ping-remover
+    name: Boss Ping Remover
+    desc: Reduces ping-based delays for NPC animations.
   - repo: teralove/channel-command
     name: Channel Command
     desc: Switch channels via chat command.
@@ -55,9 +61,6 @@ categories:
   - repo: hackerman-caali/no-custom-loadingscreens
     name: No Custom Loading Screens
     desc: Disables custom loading screens supplied by the publishers.
-  - repo: teralove/no-directional-skills
-    name: No Directional Skills
-    desc: Removes directional input on some skills.
   - repo: Mister-Kay/no-more-crazy-capes
     name: No More Crazy Capes
     desc: Removes exploding physics glitch from some back items.
@@ -116,6 +119,15 @@ categories:
   - repo: pinkipi/loot
     name: Loot
     desc: Fork of the original Loot mod. Includes throttling to prevent disconnects.
+  - repo: teralove/no-directional-skills
+    name: No Directional Skills
+    desc: Removes directional input on some skills.
+  - repo: Mister-Kay/no-directional-skills
+    name: No Directional Skills
+    desc: Separatley maintained fork. Removes directional input on some skills.
+  - repo: Mister-Kay/no-more-wasted-backstabs
+    name: No More Wasted Backstabs
+    desc: Prevents targeted backstab skills without a target. Partially included with Skill Prediction.
   - repo: teralove/party-death-markers
     name: Party Death Markers
     desc: Shows rare item beacon on party member corpses.
