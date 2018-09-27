@@ -58,12 +58,9 @@ categories:
   - repo: hackerman-caali/no-custom-loadingscreens
     name: No Custom Loading Screens
     desc: Disables custom loading screens supplied by the publishers.
-  - repo: teralove/no-directional-skills
-    name: No Directional Skills
-    desc: Removes directional input on some skills.
   - repo: Mister-Kay/no-directional-skills
     name: No Directional Skills
-    desc: Separatley maintained fork. Removes directional input on some skills.
+    desc: Fork of the original mod. Removes directional input on some skills.
   - repo: Mister-Kay/no-more-crazy-capes
     name: No More Crazy Capes
     desc: Removes exploding physics glitch from some back items.
